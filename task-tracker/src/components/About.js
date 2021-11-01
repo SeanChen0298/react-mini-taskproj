@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 const About = () => {
   return (
     <div>
-      <h4>Version 1.0.0 (unstyled)</h4>
-      <h5>Lessons learnt from project:</h5>
+      <h3>Lessons learnt from project:</h3>
       <p>
         1. Basic flow of <strong>React App</strong>, index.js grabs the div with root as ID and inject App.js into the div
         <br />

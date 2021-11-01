@@ -43,7 +43,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className="container">
         <Header title={showTaskInput} onClick={toggleInputTaskSection} />
 
         <Route

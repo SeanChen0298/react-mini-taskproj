@@ -2,7 +2,7 @@ import React from "react";
 
 const Button = ({ color, text, func }) => {
   return (
-    <button style={{ backgroundColor: color }} onClick={func}>
+    <button className="btn" onClick={func}>
       {!text ? 'Show' : 'Hide' }
     </button>
   );

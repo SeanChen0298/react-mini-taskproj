@@ -4,9 +4,9 @@ import Button from './Button'
 const Header = ({title, onClick}) => {
 
     return (
-        <div>
+        <div className="header">
             <h1>Todos Tracker</h1>
-            <Button color='AliceBlue' text={title} func={onClick}/>
+            <Button color='lightgreen' text={title} func={onClick}/>
         </div>
     )
 }
