@@ -5,7 +5,7 @@ const Header = ({title, onClick}) => {
 
     return (
         <div>
-            <h1>{title}</h1>
+            <h1>Todos Tracker</h1>
             <Button color='AliceBlue' text={title} func={onClick}/>
         </div>
     )

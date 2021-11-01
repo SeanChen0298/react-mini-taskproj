@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import TaskInput from "./components/TaskInput";
+import Footer from "./components/Footer";
+import About from "./components/About";
 
 function App() {
   const [showTaskInput, setShowTaskInput] = useState(true);
@@ -28,30 +31,46 @@ function App() {
   // toggle show input task section
   const toggleInputTaskSection = () => {
     setShowTaskInput(!showTaskInput);
-  }
+  };
 
   // add task function
   const addTask = (task) => {
     //generate random id
-    const id = Math.floor(Math.random() * 10000) + 1
-    const newTask = { id, ...task}
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = { id, ...task };
     setTasks([...tasks, newTask]);
   };
 
   return (
-    <div className="App">
-      <Header title={showTaskInput} onClick={toggleInputTaskSection} />
+    <Router>
+      <div className="App">
+        <Header title={showTaskInput} onClick={toggleInputTaskSection} />
 
-      {/* TASK INPUT */}
-      {showTaskInput && <TaskInput onAdd={addTask} />}
-  
-      {/* TASK LISTING, shows message when no task to show */}
-      {tasks.length > 0 ? (
-        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
-      ) : (
-        "No Task Added"
-      )}
-    </div>
+        <Route
+          path="/"
+          exact
+          render={(props) => (
+            <>
+              {/* TASK INPUT */}
+              {showTaskInput && <TaskInput onAdd={addTask} />}
+
+              {/* TASK LISTING, shows message when no task to show */}
+              {tasks.length > 0 ? (
+                <Tasks
+                  tasks={tasks}
+                  onDelete={deleteTask}
+                  onToggle={toggleReminder}
+                />
+              ) : (
+                "No Task Added"
+              )}
+            </>
+          )}
+        />
+        <Route path="/about" component={About} />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
